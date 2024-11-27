@@ -12,7 +12,7 @@ public class CalculadoraBasica {
         LeerOperaciones leer = new LeerOperaciones();
 
         int operacion;  // Almacena el tipo de operación (1-6)
-        while ((operacion = leer.leerOperacion()) != 6) {         // Se hará la lectura de la operación y el cálculo mientras no sea 6 (salir)
+        while ((operacion = leer.leerOperacion()) != 7) {         // Se hará la lectura de la operación y el cálculo mientras no sea 6 (salir)
             leer.calcular(operacion);
             System.out.print("Pulse ENTER para continuar...");
             leer.vaciarBuffer();

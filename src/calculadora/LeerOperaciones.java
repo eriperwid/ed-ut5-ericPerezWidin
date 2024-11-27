@@ -27,7 +27,10 @@ public class LeerOperaciones {
             case 5:     // FACTORIAL
                 OperacionesMat.operacionFactorial(this);
                 break;
-            case 6:     // SALIR
+            case 6:    // RAIZ CUADRADA
+                OperacionesMat.calcularRaizCuadrada(this);
+                break;
+            case 7:     // SALIR
                 System.out.println("*** GRACIAS POR USAR LA CALCULADORA JAVA ***");
                 break;
         }
@@ -47,11 +50,12 @@ public class LeerOperaciones {
             System.out.println("3. Potencia de dos números");
             System.out.println("4. División de dos números");
             System.out.println("5. Factorial de un número");
-            System.out.println("6. SALIR DE LA CALCULADORA");
-            System.out.print("Introduzca la opción (1-6): ");
+            System.out.println("6. Raiz cuadrada de un número");
+            System.out.println("7. SALIR DE LA CALCULADORA");
+            System.out.print("Introduzca la opción (1-7): ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // sirve para prevenir errores en lecturas posteriores
-            if (opcion <= 0 || opcion > 6) {
+            if (opcion <= 0 || opcion > 7) {
                 System.out.println("*** ERROR *** La opción no es válida. Introduzca un número entre 1 y 6.");
                 opcion = 0;
             }
@@ -153,6 +157,28 @@ public class LeerOperaciones {
         } catch (InputMismatchException e) {
             scanner.nextLine();
             System.out.println("*** ERROR *** El operando B debe ser un número entero no negativo. Vuelva a intentarlo.");
+        } while(!lecturaOK);
+        return opB;
+    }
+
+
+    /*******************************************************************
+     * FUNCIÓN leerOperandoBIntNoNegativo: Lee el operando como un número real no negativo
+     * @return Devuelve un real (double) con el operando
+     */
+    public double leerOperandoBRealNoNegativo() {
+        double opB = 0.0;
+        boolean lecturaOK = false;
+        do try {
+            System.out.print("Introduzca el valor para el operando (número real no negativo): ");
+            String input = scanner.nextLine().replace(',', '.');
+            opB = Double.parseDouble(input);
+            lecturaOK = opB >= 0;   // si el operador es igual o mayor que 0 la lectura es correcta
+        } catch (InputMismatchException e) {
+            scanner.nextLine();
+            System.out.println("*** ERROR *** El operando debe ser un número real no negativo. Vuelva a intentarlo.");
+
+
         } while(!lecturaOK);
         return opB;
     }

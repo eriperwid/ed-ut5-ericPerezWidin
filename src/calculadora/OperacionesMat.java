@@ -79,4 +79,16 @@ public class OperacionesMat {
         }
         return resultado;
     }
+
+    /*******************************
+     * FUNCIÓN raizCuadrada() - Solicita el operador y calcula la raiz cuadrada
+     */
+    public static void calcularRaizCuadrada(LeerOperaciones leer) {
+        double operador;
+        double resultado;
+        System.out.println("*** RAIZ CUADRADA DE A ***");
+        operador = leer.leerOperandoBRealNoNegativo();
+        resultado = Math.sqrt(operador);
+        System.out.println("El resultado del factorial de " + operador + " es: " + resultado);
+    }
 }
